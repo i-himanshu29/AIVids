@@ -13,7 +13,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await connectToDatabase();
+    const db = await connectToDatabase();
+    console.log(db)
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
